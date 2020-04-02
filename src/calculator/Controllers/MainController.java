@@ -1,11 +1,10 @@
 package calculator.Controllers;
 
-import calculator.java_files.Calculator;
+import calculator.java_files.ONPCalculator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-
 import javax.sound.sampled.*;
 import java.io.File;
 
@@ -18,9 +17,10 @@ public class MainController {
     private boolean fresh = true;
     private String operation = "";
 
-    @FXML
+    @FXML //Adding the button symbol to the operation
     public void processSymbol(ActionEvent event){
         playSound();
+
         if (fresh){
             result.setText("");
             fresh = false;
@@ -31,24 +31,29 @@ public class MainController {
         result.setText(operation);
     }
 
-    @FXML
+    @FXML //Calculating operation
     public void calculate(ActionEvent actionEvent) {
-
-        /* Calculating */
         playSound();
         if (operation.length() != 0)
             try {
                 operation += "=";
-                String wynik = Calculator.ONP_translate(operation);
-                System.out.println("ONP Translate result: " + wynik);
-                wynik = Calculator.calculate(wynik);
-                result.setText(String.valueOf(wynik));
-                operation = wynik;
+
+                /* Translate operation to ONP */
+                String result_value = ONPCalculator.ONP_translate(operation);
+                System.out.println("ONP Translate result: " + result_value);
+
+                /* Calculating ONP operation */
+                result_value = ONPCalculator.ONP_calculate(result_value);
+
+                /* Sending the result to the text label */
+                result.setText(String.valueOf(result_value));
+                operation = result_value;
             } catch (Exception e){
-                e.printStackTrace();
-                result.setText(String.valueOf("Error"));
+
+                /* If the error occurs - reset */
+                System.out.println(e.getMessage());
+                result.setText(String.valueOf("Syntax Err"));
                 operation = "";
-            } finally {
                 fresh = true;
             }
         else {
@@ -56,13 +61,13 @@ public class MainController {
         }
     }
 
+    /* Removing the last symbol from the operation */
     public void undo(ActionEvent actionEvent) {
         playSound();
         if (!fresh){
             System.out.println("Removing last value");
             operation = operation.substring(0, operation.length()-1);
             result.setText(operation);
-
             if (operation.length()==0)
                 fresh = true;
         } else {
@@ -70,6 +75,7 @@ public class MainController {
         }
     }
 
+    /* Reset the operation */
     public void reset(ActionEvent actionEvent) {
         playSound();
         System.out.println("Reset");

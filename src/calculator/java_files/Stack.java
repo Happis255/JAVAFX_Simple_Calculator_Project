@@ -1,29 +1,36 @@
 package calculator.java_files;
 
-public class Stack {
+/* Stos - reprezentacja stosu wykorzystywanego do wykonywania obliczeń ONP */
+class Stack {
 
-    private static class StackItem{
-        public String data;
-        public StackItem prev;
+    /* Przechowywany element na stosie
+    *  @data - przechowywana wartość
+    *  @prev - element poprzedzający dany element stosu */
+    private static class StackItem {
+        String value;
+        StackItem prev;
     }
 
+    /* Element odłożony na górze stosu */
     private StackItem stackTop;
 
-    public Stack()
-    {
+    /* Konstruktor stosu - stos pusty, ustaw null */
+    Stack() {
         stackTop = null;
     }
 
-    public boolean isEmpty()
-    {
+    /* Sprawdza, czy na stosie jest odłożony element */
+    boolean isEmpty() {
         return stackTop == null;
     }
 
-    public void push(String str)
-    {
-        StackItem newItem = new StackItem();
-        newItem.data = str;
+    /* Dodaje element na stos */
+    void push(String str) {
 
+        StackItem newItem = new StackItem();
+        newItem.value = str;
+
+        /* Albo dodajemy element na górę stosu pustego, albo na kolejny element */
         if(isEmpty()){
             stackTop = newItem;
             stackTop.prev = null;
@@ -33,21 +40,19 @@ public class Stack {
         }
     }
 
-    public String top() throws Exception
-    {
-        if(stackTop == null)
-            throw new Exception("Stack is empty!");
-
-        return stackTop.data;
+    /* Zwraca wartość elementu na górze stosu */
+    String top() throws Exception  {
+        if(isEmpty())
+            throw new Exception("Stack is empty, nothing to calculate - SYNTAX ERROR!");
+        return stackTop.value;
     }
 
-    public String pop() throws Exception
-    {
-        if(stackTop == null)
-            throw new Exception("Stack is empty!");
-
-        String retData = stackTop.data;
+    /* Usuwa górny element ze stosu */
+    String pop() throws Exception  {
+        if(isEmpty())
+            throw new Exception("Stack is empty, nothing to calculate - SYNTAX ERROR!");
+        String readed = stackTop.value;
         stackTop = stackTop.prev;
-        return retData;
+        return readed;
     }
 }
