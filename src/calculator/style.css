@@ -1,0 +1,22 @@
+#background{
+    -fx-background-color: #276ebd;
+}
+
+.button{
+    -fx-background-color:  white;
+    -fx-font-size:  20;
+    -fx-text-fill:  black;
+    -fx-font-weight:  900;
+    -fx-font-family:  Calibri;
+    -fx-background-radius: 20px;
+}
+
+.button:hover{
+    -fx-background-color:  red;
+    -fx-text-fill:  white;
+}
+
+#result{
+    -fx-text-fill: black;
+    -fx-font-weight:  900;
+}
