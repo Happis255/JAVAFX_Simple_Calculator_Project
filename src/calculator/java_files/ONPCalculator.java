@@ -222,23 +222,23 @@ public class ONPCalculator {
         float temp;
         StringBuilder tempString;
 
-        //First char
-        String ch = equation.substring(0, 1);
+        //First character in equation
+        String character = equation.substring(0, 1);
 
         //Rest of equation
         equation = equation.substring(1);
 
-        while (!ch.equals("=")) {
+        while (!character.equals("=")) {
             tempString = new StringBuilder();
-            switch (ch) {
+            switch (character) {
                 case "<":
-                    ch = equation.substring(0, 1);
+                    character = equation.substring(0, 1);
                     equation = equation.substring(1);
                     do {
-                        tempString.append(ch);
-                        ch = equation.substring(0, 1);
+                        tempString.append(character);
+                        character = equation.substring(0, 1);
                         equation = equation.substring(1);
-                    } while (!ch.equals(">"));
+                    } while (!character.equals(">"));
                     stack.push(tempString.toString());
                     break;
                 case "+":
@@ -280,7 +280,7 @@ public class ONPCalculator {
                 default:
                     throw new Exception("Unknow symbol - SYNTAX ERROR!");
             }
-            ch = equation.substring(0, 1);
+            character = equation.substring(0, 1);
             if (equation.length() > 1)
                 equation = equation.substring(1);
             else
