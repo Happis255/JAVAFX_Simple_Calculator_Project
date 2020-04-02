@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" spacing="10.0" style="-fx-border-color: white; -fx-border-width: 5px;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.Controllers.MainController">
+   <children>
+      <StackPane maxHeight="40.0" maxWidth="250.0" prefHeight="50.0" prefWidth="160.0" style="-fx-background-color: white; -fx-background-radius: 20px;" styleClass="result" stylesheets="@style.css">
+         <children>
+            <Label id="result" fx:id="result" alignment="CENTER" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets bottom="16.0" left="20.0" top="17.0" />
+         </VBox.margin></StackPane>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="300.0" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#undo" prefWidth="110.0" text="←">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#reset" prefWidth="110.0" text="C">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="300.0" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" stylesheets="@style.css" text="(">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" text=")">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" text="\%">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" text="^">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="300.0" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" stylesheets="@style.css" text="7">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" text="8">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" text="9">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" text="/">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="130.0" prefHeight="50.0" prefWidth="300.0" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" text="4">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" text="5">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" text="6">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" text="*">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="190.0" prefHeight="50.0" prefWidth="300.0" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" text="1">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" text="2">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" text="3">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" text="-">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="190.0" prefHeight="50.0" prefWidth="300.0" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" text="0">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="70.0" layoutY="13.0" mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" text=".">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#calculate" prefWidth="50.0" text="=">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#processSymbol" prefWidth="50.0" text="+">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets bottom="7.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

@@ -11,10 +11,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
-        primaryStage.setTitle("Simple Java Calculator Project v0.1");
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/Main.fxml"));
+        primaryStage.setTitle("Java Calculator v2");
+        primaryStage.setResizable(false);
         primaryStage.getIcons().add(new Image("icon.png"));
-        primaryStage.setScene(new Scene(root, 300, 300));
+        primaryStage.setScene(new Scene(root, 300, 400));
         primaryStage.show();
     }
 
