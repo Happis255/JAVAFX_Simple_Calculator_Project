@@ -286,6 +286,7 @@ public class ONPCalculator {
             else
                 equation = "";
         }
-        return stack.top();
+        if (stack.top().equals("-0.0")) return "0.0";
+            else return stack.top();
     }
 }
