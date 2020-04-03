@@ -14,7 +14,10 @@ public class ONPCalculator {
     }
 
     /* Compares two symbols' priorities */
-    private static boolean compare_priorities(PRIORITY val1, PRIORITY val2) throws Exception {
+    private static boolean compare_priorities(PRIORITY val1, PRIORITY val2) {
+        assert (val1 != null) : "val1 at compare_priorities() method cannot be null";
+        assert (val2 != null) : "val2 at compare_priorities() method cannot be null";
+
         boolean comp_result;
 
         switch (val1) {
@@ -61,6 +64,9 @@ public class ONPCalculator {
 
     /* Returns the priority of the symbol */
     private static PRIORITY getPriority(String symbol) {
+        assert (symbol != null) : "symbol at getPriority() method cannot be null";
+        assert (String.class.isInstance(symbol)) : "symbol at getPriority() method must be String";
+
         PRIORITY symbol_priority;
         switch (symbol) {
 
@@ -108,11 +114,14 @@ public class ONPCalculator {
                 symbol_priority = PRIORITY.VARIABLE;
                 break;
         }
+        assert (symbol != null) : "getPriority() cannot return null";
         return symbol_priority;
     }
 
     /* Return translated ONP equation */
     static String translate_to_ONP(String quation) throws Exception {
+        assert (quation != null) : "quation at translate_to_ONP() method cannot be null";
+        assert (String.class.isInstance(quation)) : "quation at translate_to_ONP() method must be String";
 
         StringBuilder onp_quation = new StringBuilder();
         Stack stack = new Stack();
@@ -192,11 +201,16 @@ public class ONPCalculator {
             onp_quation.append(stack.top());
             stack.pop();
         }
+
+        assert (onp_quation.toString() != null) : "translate_to_ONP() cannot return null";
         return onp_quation.toString();
     }
 
     /* Translates the String text into ONP equation */
     public static String ONP_translate(String equation) throws Exception {
+        assert (equation != null) : "equation at ONP_translate() method cannot be null";
+        assert (!equation.equals("=")) : "equation at ONP_translate() method cannot be \"=\"";
+        assert (equation.length() < 0) : "equation at ONP_translate() .length() error";
 
         /* Chech if there is equal sign */
         if (!equation.substring(equation.length() - 1).equals("="))
@@ -211,6 +225,9 @@ public class ONPCalculator {
 
     /* Returns the String value of ONP equation */
     public static String ONP_calculate(String equation) throws Exception {
+        assert (equation != null) : "equation at ONP_calculate() method cannot be null";
+        assert (!equation.equals("=")) : "equation at ONP_calculate() method cannot be \"=\"";
+        assert (equation.length() < 0) : "equation at ONP_calculate() .length() error";
 
         /* Chech if there is equal sign */
         if (!equation.substring(equation.length() - 1).equals("="))
