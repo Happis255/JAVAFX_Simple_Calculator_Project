@@ -1,7 +1,7 @@
 package calculator.java_files;
 
 /* Stos - reprezentacja stosu wykorzystywanego do wykonywania obliczeń ONP */
-class Stack {
+public class Stack {
 
     /* Przechowywany element na stosie
     *  @data - przechowywana wartość
@@ -15,17 +15,17 @@ class Stack {
     private StackItem stackTop;
 
     /* Konstruktor stosu - stos pusty, ustaw null */
-    Stack() {
+    public Stack() {
         stackTop = null;
     }
 
     /* Sprawdza, czy na stosie jest odłożony element */
-    boolean isEmpty() {
+    public boolean isEmpty() {
         return stackTop == null;
     }
 
     /* Dodaje element na stos */
-    void push(String str) {
+    public void push(String str) {
 
         StackItem newItem = new StackItem();
         newItem.value = str;
@@ -41,14 +41,14 @@ class Stack {
     }
 
     /* Zwraca wartość elementu na górze stosu */
-    String top() throws Exception  {
+    public String top() throws Exception  {
         if(isEmpty())
             throw new Exception("Stack is empty, nothing to calculate - SYNTAX ERROR!");
         return stackTop.value;
     }
 
     /* Usuwa górny element ze stosu */
-    String pop() throws Exception  {
+    public String pop() throws Exception  {
         if(isEmpty())
             throw new Exception("Stack is empty, nothing to calculate - SYNTAX ERROR!");
         String readed = stackTop.value;
