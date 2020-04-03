@@ -8,6 +8,7 @@ Język: Java
 * src/calculator/Controllers - folder przechowywujący kontroler widoku
 * src/calculator/fxml - folder przechowywujący plik `.fxml` ekranu głównego
 * src/calculator/java_files - folder przechowywujący klasy kalkulatora ONP - wykorzystywany stos oraz logikę kalkulatora
+* src/test - folder przechowywujący klasy wykorzystywane do testów jednostkowych
 
 ### Funkcjonalności aplikacji
 
